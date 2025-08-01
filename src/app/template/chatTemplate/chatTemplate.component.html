@@ -1,0 +1,23 @@
+<div class="chat-container">
+  <div class="chat-messages">
+    <div class="grid gap-y-2">
+      <!-- Chat Messages -->
+      <app-chat-message text="Escribe el texto que quieres que revise." />
+
+      @for (message of messages(); track $index) { @if (message.idGpt) {
+      <app-chat-message [text]="message.text" />
+      }@else {
+      <app-my-message [text]="message.text" />
+
+      } } @if (isLoading()) {
+      <app-typing-loader />
+      }
+    </div>
+  </div>
+
+  <!-- MessagesBox -->
+  <app-text-message-box
+    [placeholder]="'texto enviado del ortoghrafia'"
+    (onMessage)="handleMessage($event)"
+  />
+</div>
