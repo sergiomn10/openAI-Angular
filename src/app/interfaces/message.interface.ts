@@ -2,7 +2,7 @@
 
 export interface Message {
     text: string;
-    idGpt: boolean;
+    isGpt: boolean;
     info?: {
         userScore: number;
         errors: string[];

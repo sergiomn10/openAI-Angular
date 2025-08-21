@@ -6,7 +6,7 @@
         text="Escribe el texto que quieres que revise."
       />
 
-      @for (message of messages(); track $index) { @if (message.idGpt) {
+      @for (message of messages(); track $index) { @if (message.isGpt) {
       <app-gpt-message-orthography
         [text]="message.text"
         [errors]="message.info!.errors"

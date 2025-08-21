@@ -25,7 +25,7 @@ export default class ProsConsPageComponent {
     this.messages.update( (prev) => [
       ...prev,
       {
-        idGpt:false,
+        isGpt:false,
         text: prompt
       }
     ]);
@@ -37,7 +37,7 @@ export default class ProsConsPageComponent {
       this.messages.update( prev => [
         ...prev, // los tres puntos indican que se van a esparcir los valores del array para poder agregar uno nuevo
         {
-          idGpt: true,
+          isGpt: true,
           text: resp.content[0].text
           
         }

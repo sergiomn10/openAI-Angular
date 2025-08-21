@@ -35,11 +35,11 @@ export default class ProsConsStreamPageComponent {
     this.messages.update( prev => [
       ...prev,
       {
-        idGpt: false,
+        isGpt: false,
         text: prompt
       },
       {
-        idGpt: true,
+        isGpt: true,
         text: '...'
       }
     ] );
@@ -59,6 +59,6 @@ export default class ProsConsStreamPageComponent {
     this.messages().pop();// con pop obtiene el ultimo mensaje de la lista
     const messages = this.messages();
 
-    this.messages.set([...messages,{idGpt:true, text: message}]);
+    this.messages.set([...messages,{isGpt:true, text: message}]);
   }
 }
