@@ -9,5 +9,9 @@ export interface Message {
         message: string;
     },
     audioUrl?: string;
+    imageInfo?: {
+        url: string;
+        alt: string;
+    }
     
 }

@@ -3,16 +3,14 @@ import { MarkdownModule } from 'ngx-markdown';
 
 @Component({
   selector: 'app-chat-message',
-  imports: [
-    MarkdownModule
-  ],
+  imports: [MarkdownModule],
   templateUrl: './chatMessage.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChatMessageComponent {
-
   text = input.required<string>();
 
   audioUrl = input<string>();
 
- }
+  imageInfo = input<{ url: string; alt: string }>();
+}
