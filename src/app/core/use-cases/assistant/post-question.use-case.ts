@@ -1,0 +1,26 @@
+import { QuestionResponse } from '@interfaces/index';
+import { environment } from 'environments/environment';
+
+export const postQuestiondUseCase = async (
+  threadId: string,
+  question: string
+) => {
+  try {
+
+    console.log(`thread: ${threadId} , question: ${question}`);
+    const resp = await fetch(`${environment.assistantApi}/user-question`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ threadId, question }),
+    });
+
+    const replies = (await resp.json()) as QuestionResponse[];
+    console.log(replies);
+
+    return replies;
+  } catch (error) {
+    throw new Error('Error creating thread ID');
+  }
+};
